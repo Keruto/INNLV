@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SnaekMezz", "SnaekMezz\SnaekMezz.csproj", "{AA53A22A-CEC0-430D-82A9-B05B8EC25973}"
+EndProject
+Project("{F088123C-0E9E-452A-89E6-6BA2F21D5CAC}") = "SnaekModel", "SnaekModel\SnaekModel.modelproj", "{9A7116BF-5C8A-4FD6-9C07-68FEDE54DCC0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AA53A22A-CEC0-430D-82A9-B05B8EC25973}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA53A22A-CEC0-430D-82A9-B05B8EC25973}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA53A22A-CEC0-430D-82A9-B05B8EC25973}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA53A22A-CEC0-430D-82A9-B05B8EC25973}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A7116BF-5C8A-4FD6-9C07-68FEDE54DCC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A7116BF-5C8A-4FD6-9C07-68FEDE54DCC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A7116BF-5C8A-4FD6-9C07-68FEDE54DCC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A7116BF-5C8A-4FD6-9C07-68FEDE54DCC0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

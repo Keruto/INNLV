@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="f9babf80-b526-4dd2-bb40-07f1e8762bbb" name="SnaekClassDiagram" linkedPackageId="d7870423-84c8-4e8e-a597-02bac2e2eb47" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+  <ownedCommentsInternal>
+    <comment Id="4cc986b6-6c5a-46bc-a5ee-ba737c9b1f69">
+      <elementDefinition Id="890e3f08-07d1-415b-8c0d-35a83bdca22f" />
+      <body>globale variabler</body>
+    </comment>
+    <comment Id="440b8e04-70c5-42f5-aada-02ac1042d6f8">
+      <elementDefinition Id="6ca077dc-3b8a-4e63-bd31-7d4889abceb2" />
+      <body>vindu, initialisering, input keys</body>
+    </comment>
+  </ownedCommentsInternal>
+  <profileInstances>
+    <packageHasProfileInstances Id="8e6ddf86-ea00-4a29-94cd-7739aa257df6">
+      <profileInstance Id="e238ac2f-ee17-47d3-b83f-bc12e01243ac" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="66c74937-96ac-4ab9-ac73-1ee91617e24d">
+      <profileInstance Id="df351730-19ce-490b-a247-143bc819e68f" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="02e52b5e-fadf-4ba6-8e06-91830d36624c" name="Game" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="43211429-914b-48b8-9a71-8dba1417aea0" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="0b34908f-ddb0-48e8-882c-162096bfbce5" name="Position" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="6fdbf782-6846-4084-bdd8-b71c27f5acbb" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="ab77ba7b-eace-485e-94a1-b19dd57ffa80" name="root" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="5ec2611b-4c22-4b6f-a5ee-4ca13820dd36" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="d325c70d-53b0-4ad8-804c-2a44a56ef78b" name="GameObject" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="5dc0dab9-38ab-43ad-bb76-ee7ec83b7d0c" />
+        <generalsInternal>
+          <generalization Id="525d0299-2a74-46e2-9e02-3721c9e4130e" isSubstitutable="false">
+            <classMoniker Id="8d6ec5f4-64d8-4c69-bd32-d9b12e18b5f2" LastKnownName="Snake" />
+            <elementDefinition Id="42cbb0f6-007c-4fb4-8a53-639d15bd1a57" />
+          </generalization>
+          <generalization Id="55f4ce54-d0e5-4d1f-840c-6de6264885ee" isSubstitutable="false">
+            <classMoniker Id="4dffe758-321b-41e4-9a21-2431908c276f" LastKnownName="Apple" />
+            <elementDefinition Id="096b6de4-337a-404b-9964-4a7b4b743ff3" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="8d6ec5f4-64d8-4c69-bd32-d9b12e18b5f2" name="Snake" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="7c8eecf3-1581-44ef-90c0-481e560c481d" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="4dffe758-321b-41e4-9a21-2431908c276f" name="Apple" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="6ebdb549-6d43-491e-a16c-cc939c9a91e4" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+  </packagedElements>
+  <package Id="d7870423-84c8-4e8e-a597-02bac2e2eb47" name="SnaekModel">
+    <elementDefinition Id="758b7cb4-4803-4f23-bbc4-1de003cb80de" />
+  </package>
+</logicalClassDesignerModel>
