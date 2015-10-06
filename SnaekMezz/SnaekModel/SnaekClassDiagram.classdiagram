@@ -9,30 +9,64 @@
       <elementDefinition Id="6ca077dc-3b8a-4e63-bd31-7d4889abceb2" />
       <body>vindu, initialisering, input keys</body>
     </comment>
+    <comment Id="6cbe462e-8428-4b15-b9d4-79d46348ea68">
+      <elementDefinition Id="64cda055-08bd-4461-a742-1ddac2069f1c" />
+      <body>funksjonaliteten i denne kan kanskje heller være i "Game"</body>
+      <annotatedElements>
+        <classMoniker Id="376e771e-3afe-4691-a919-6659fcf2dcea" LastKnownName="SnakeController" />
+      </annotatedElements>
+    </comment>
+    <comment Id="56b6d5e6-936d-49e1-8077-0a6ea8d6c42d">
+      <elementDefinition Id="7aedb5a4-c43e-4414-84de-9dcfd3169233" />
+      <body>Kan kanskje linkes til Game istedet?</body>
+      <annotatedElements>
+        <classMoniker Id="50a76746-2e7e-4c0a-91bd-50230b264406" LastKnownName="Board" />
+      </annotatedElements>
+    </comment>
   </ownedCommentsInternal>
-  <profileInstances>
-    <packageHasProfileInstances Id="8e6ddf86-ea00-4a29-94cd-7739aa257df6">
-      <profileInstance Id="e238ac2f-ee17-47d3-b83f-bc12e01243ac" name="StandardProfileL2">
-        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
-      </profileInstance>
-      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
-    </packageHasProfileInstances>
-    <packageHasProfileInstances Id="66c74937-96ac-4ab9-ac73-1ee91617e24d">
-      <profileInstance Id="df351730-19ce-490b-a247-143bc819e68f" name="StandardProfileL3">
-        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
-      </profileInstance>
-      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
-    </packageHasProfileInstances>
-  </profileInstances>
   <packagedElements>
     <logicalClassDesignerModelHasTypes>
       <class Id="02e52b5e-fadf-4ba6-8e06-91830d36624c" name="Game" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="43211429-914b-48b8-9a71-8dba1417aea0" />
+        <ownedOperationsInternal>
+          <operation Id="3b85b08a-06ae-4a0d-b42b-12400314a501" name="InitGame" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="a01c41ea-e981-4802-99da-5cd3626175a8" />
+          </operation>
+          <operation Id="cae8b970-aca3-4170-b89a-50e805619c90" name="spawnGameObject" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="4bf2e781-8b1d-4406-91cb-c05256afab27" />
+          </operation>
+        </ownedOperationsInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
       <class Id="0b34908f-ddb0-48e8-882c-162096bfbce5" name="Position" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="6fdbf782-6846-4084-bdd8-b71c27f5acbb" />
+        <targetEnds>
+          <association Id="7a679167-99a9-4fbc-b49f-3ad25834784c" isDerived="false" sourceEndRoleName="Position" targetEndRoleName="GameObject" isLeaf="false" isAbstract="false">
+            <classMoniker Id="d325c70d-53b0-4ad8-804c-2a44a56ef78b" LastKnownName="GameObject" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="5bfaef8c-6f3f-4aa5-b57b-25fb5ebf2618" name="Position" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="1ee245b4-29ab-4574-8b07-a486eb0f293d" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="1243ca66-eb5d-4645-9861-bd45363b1e56" name="GameObject" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="a877001d-84b9-4151-b956-0374b5084ebd" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="0a1dab03-4b40-4951-a486-f5be70821e1c" />
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property Id="ec4f3d45-9816-469f-9c8a-2fd5d9bcf663" name="x" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="bc94b7f4-c7bb-4574-977f-7af5ae7136be" />
+          </property>
+          <property Id="da88e60c-1244-4139-afad-e0d5c0d4a30a" name="y" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="1de26db7-e863-4481-9e54-768b671ee4a5" />
+          </property>
+        </ownedAttributesInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
@@ -41,32 +75,159 @@
       </class>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
-      <class Id="d325c70d-53b0-4ad8-804c-2a44a56ef78b" name="GameObject" isAbstract="false" isLeaf="false" isActiveClass="false">
+      <class Id="d325c70d-53b0-4ad8-804c-2a44a56ef78b" name="GameObject" isAbstract="true" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="5dc0dab9-38ab-43ad-bb76-ee7ec83b7d0c" />
-        <generalsInternal>
-          <generalization Id="525d0299-2a74-46e2-9e02-3721c9e4130e" isSubstitutable="false">
-            <classMoniker Id="8d6ec5f4-64d8-4c69-bd32-d9b12e18b5f2" LastKnownName="Snake" />
-            <elementDefinition Id="42cbb0f6-007c-4fb4-8a53-639d15bd1a57" />
-          </generalization>
-          <generalization Id="55f4ce54-d0e5-4d1f-840c-6de6264885ee" isSubstitutable="false">
-            <classMoniker Id="4dffe758-321b-41e4-9a21-2431908c276f" LastKnownName="Apple" />
-            <elementDefinition Id="096b6de4-337a-404b-9964-4a7b4b743ff3" />
-          </generalization>
-        </generalsInternal>
+        <targetEnds>
+          <association Id="415dddf8-eabe-43fe-beee-74257119e620" isDerived="false" sourceEndRoleName="GameObject" targetEndRoleName="Game" isLeaf="false" isAbstract="false">
+            <classMoniker Id="02e52b5e-fadf-4ba6-8e06-91830d36624c" LastKnownName="Game" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="d68cb32f-3e1a-4dae-b5f3-243e7a3c8cfa" name="GameObject" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString Id="e8fc8d34-c1fd-4cc5-9ae7-bee1f767abef" name="Lower" value="*">
+                      <elementDefinition Id="ee691a9f-ba31-42a6-ad29-80e6a4607500" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="2032ed2d-a4c6-45e3-87d4-09fe2dadba18" name="Upper" value="*">
+                      <elementDefinition Id="852a8ab5-abdf-4361-aadc-9b8ad574cffe" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="d0dc4211-fc9d-4221-9dcf-d7a518d5a009" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="243fdfa0-360f-479a-8ea5-bc818e18608d" name="Game" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="5925265b-05be-4223-a871-1556302438f3" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="fb6519c9-fe1e-4f15-b1ea-8ef67630098c" />
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property Id="9dc0e491-2947-41d0-9dbc-d5273feed511" name="&lt;&lt;Property&gt;&gt; -position" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="4e2d09bb-de62-4fd5-a75e-ab11ea4b2634" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="04952c36-59ed-46d7-9f2b-9f089a4fea72" LastKnownName="position" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
       <class Id="8d6ec5f4-64d8-4c69-bd32-d9b12e18b5f2" name="Snake" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="7c8eecf3-1581-44ef-90c0-481e560c481d" />
+        <generalsInternal>
+          <generalization Id="679f2f11-2ef7-4319-94d8-1bbd644448dd" isSubstitutable="false">
+            <classMoniker Id="d325c70d-53b0-4ad8-804c-2a44a56ef78b" LastKnownName="GameObject" />
+            <elementDefinition Id="52365f09-0166-45d4-b0de-0e2d6f1fe7fd" />
+          </generalization>
+        </generalsInternal>
+        <targetEnds>
+          <association Id="9ebb5c32-1e11-4168-8bda-7b7e89560272" isDerived="false" sourceEndRoleName="Snake" targetEndRoleName="SnakeController" isLeaf="false" isAbstract="false">
+            <classMoniker Id="376e771e-3afe-4691-a919-6659fcf2dcea" LastKnownName="SnakeController" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="130c3f84-cabd-4ee6-9b98-d24e27a329cc" name="Snake" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Composite" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="5c8b8988-d236-420d-a900-b4b1b2142538" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="ff1dd1ac-eae1-44c7-92ef-b6f64a99bbe0" name="SnakeController" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="true">
+                  <elementDefinition Id="b4c5fc94-9d80-4ff6-8635-d584a4de8370" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="1934ce28-3a3a-457e-aabf-6b14280d7023" />
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property Id="2cc30283-d61c-4fc3-9fad-bcf55311d4dd" name="body" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="064c1f15-6639-42ec-864f-312a632db491" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="0d715e01-f09a-48ce-8f73-2fe399adfd94" LastKnownName="List&lt;Position&gt;" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="8da45485-9524-42e0-a763-9c4331e8aad4" name="Move" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="f9281878-3594-4d51-b7b3-e8e9ace857dd" />
+          </operation>
+        </ownedOperationsInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
       <class Id="4dffe758-321b-41e4-9a21-2431908c276f" name="Apple" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="6ebdb549-6d43-491e-a16c-cc939c9a91e4" />
+        <generalsInternal>
+          <generalization Id="da2cc0fc-1ec6-4236-9207-141ce2f0e235" isSubstitutable="false">
+            <classMoniker Id="d325c70d-53b0-4ad8-804c-2a44a56ef78b" LastKnownName="GameObject" />
+            <elementDefinition Id="375240ea-2c78-4d32-8071-4399222a7db4" />
+          </generalization>
+        </generalsInternal>
+        <ownedOperationsInternal>
+          <operation Id="5784a957-14d0-4f52-8af8-30f6019d3521" name="PlaceApple" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="dd45be49-27ca-42a6-bc3a-3aa5d007a61c" />
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="04952c36-59ed-46d7-9f2b-9f089a4fea72" name="position" isAbstract="false" isLeaf="false" cachedFullName="position">
+        <elementDefinition Id="c814c055-de7b-492b-befe-19b33930c2b8" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="376e771e-3afe-4691-a919-6659fcf2dcea" name="SnakeController" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="b9fa3fd8-3a06-4926-983f-4abca49f7255" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="0d715e01-f09a-48ce-8f73-2fe399adfd94" name="List&lt;Position&gt;" isAbstract="false" isLeaf="false" cachedFullName="List&lt;Position&gt;">
+        <elementDefinition Id="e129984c-918f-4606-8ae5-9206732c3113" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="50a76746-2e7e-4c0a-91bd-50230b264406" name="Board" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="521ca01a-d3dd-49b6-bba5-bd184a7e1bc9" />
+        <generalsInternal>
+          <generalization Id="fd13627e-f8ed-4fed-b2e6-7feeb36772ab" isSubstitutable="false">
+            <classMoniker Id="d325c70d-53b0-4ad8-804c-2a44a56ef78b" LastKnownName="GameObject" />
+            <elementDefinition Id="404619e4-65e7-4dc4-8dbf-f0c022fe3b8d" />
+          </generalization>
+        </generalsInternal>
+        <ownedAttributesInternal>
+          <property Id="dc9abe19-5273-4dbd-8908-cd3fda617c76" name="boardWidth" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="a5f341d5-6a68-43eb-87ed-7c609d3025d2" />
+          </property>
+          <property Id="fcfaf85d-dd0b-4abf-b4fb-0e8764a27bdd" name="boardHeight" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="41dc6704-dbb6-42cb-9bee-edba74c65df2" />
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="f05c3241-e1c3-4166-900a-b1074bd472e4" name="DefineBoard" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="857b3fd6-5f83-43d5-a07c-47a19e164ee9" />
+          </operation>
+        </ownedOperationsInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
   </packagedElements>
   <package Id="d7870423-84c8-4e8e-a597-02bac2e2eb47" name="SnaekModel">
     <elementDefinition Id="758b7cb4-4803-4f23-bbc4-1de003cb80de" />
+    <profileInstances>
+      <packageHasProfileInstances Id="8e6ddf86-ea00-4a29-94cd-7739aa257df6">
+        <profileInstance Id="e238ac2f-ee17-47d3-b83f-bc12e01243ac" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="66c74937-96ac-4ab9-ac73-1ee91617e24d">
+        <profileInstance Id="df351730-19ce-490b-a247-143bc819e68f" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
   </package>
 </logicalClassDesignerModel>

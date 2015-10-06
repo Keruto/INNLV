@@ -10,7 +10,7 @@ namespace SnaekMezz
     {
         static void Main(string[] args)
         {
-
+			Sm.Maine();
         }
     }
 }
