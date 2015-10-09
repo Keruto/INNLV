@@ -5,28 +5,8 @@ using System.Diagnostics;
 
 namespace SnaekMezz
 {
-	//Position class to give objects positions.
-	class Pos
-	{
-		public const string Ok = "Ok"; //what does this do?
-		public int X; public int Y;
-
-		public Pos(int x = 0, int y = 0)
-		{
-			X = x;
-			Y = y;
-		}
-
-		public Pos(Pos input)
-		{
-			X = input.X;
-			Y = input.Y;
-		}
-	}
-
 	class Sm
 	{
-		//public static void Main(string[] arguments)
 		//Game.cs runs Sm.Maine()
         public static void Maine()
 		{
@@ -36,22 +16,23 @@ namespace SnaekMezz
 			bool inUse = false;
 			short direction= 2; // 0 = up, 1 = right, 2 = down, 3 = left
 			short last = direction;
-			int boardW = Console.WindowWidth, boardH = Console.WindowHeight;
+	        int boardW = Console.WindowWidth;
+			int boardH = Console.WindowHeight;
 			Random rng = new Random();
 			Console.CursorVisible = false;
 			Console.Title = "SNAKE";
 
 			//CreateSnake()
-			var snake = new List<Pos>();
-			snake.Add(new Pos(10, 10));
-			snake.Add(new Pos(10, 10));
-			snake.Add(new Pos(10, 10));
-			snake.Add(new Pos(10, 10));
+			var snake = new List<Position>();
+			snake.Add(new Position(10, 10));
+			snake.Add(new Position(10, 10));
+			snake.Add(new Position(10, 10));
+			snake.Add(new Position(10, 10));
 			Console.ForegroundColor = ConsoleColor.Green;
 			Console.SetCursorPosition (10, 10); Console.Write ("@");
 
 			//SpawnApple()
-			var apple = new Pos ();
+			var apple = new Position ();
 
 			// Apple placement. Loop forever until "break;".
 			while (true)
@@ -62,7 +43,7 @@ namespace SnaekMezz
 				bool isSpotFree = true;
 
 				//Check if any part of snake is on the appleSpawnSpot
-				foreach (Pos i in snake)
+				foreach (Position i in snake)
 				{
 					if (i.X == apple.X && i.Y == apple.Y)
 					{
@@ -80,12 +61,13 @@ namespace SnaekMezz
 				}
 			}
 
-			//Start timer.
+			//Start timer. //kjør update-metode.
 			Stopwatch timer = new Stopwatch();
 			timer.Start();
 
 			//listeningForInput... "Controller" class maybe?
-			while (!gameOver) {
+			while (!gameOver)
+			{
 				if (Console.KeyAvailable) {
 					var cki = Console.ReadKey(true);
 					if (cki.Key == ConsoleKey.Escape)
@@ -105,9 +87,9 @@ namespace SnaekMezz
 					if (timer.ElapsedMilliseconds < 100)
 						continue;
 					timer.Restart();
-					var tail = new Pos(snake.First());
-					var head = new Pos(snake.Last());
-					var newH = new Pos(head);
+					var tail = new Position(snake.First());
+					var head = new Position(snake.Last());
+					var newH = new Position(head);
 					switch (direction) {
 						case 0:
 							newH.Y -= 1;
@@ -140,7 +122,7 @@ namespace SnaekMezz
 								//More apple placement
 								apple.X = rng.Next(0, boardW); apple.Y = rng.Next(0, boardH);
 								bool found = true;
-								foreach (Pos i in snake)
+								foreach (Position i in snake)
 									if (i.X == apple.X && i.Y == apple.Y)
 									{
 										found = false;
@@ -159,7 +141,7 @@ namespace SnaekMezz
 						snake.RemoveAt(0);
 
 						//doCollisionwith selfCheck
-						foreach (Pos x in snake)
+						foreach (Position x in snake)
 						{
 							if (x.X == newH.X && x.Y == newH.Y)
 							{

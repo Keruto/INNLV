@@ -12,26 +12,6 @@
       Id="6ca077dc-3b8a-4e63-bd31-7d4889abceb2">
       <body>vindu, initialisering, input keys</body>
     </comment>
-    <comment
-      Id="64cda055-08bd-4461-a742-1ddac2069f1c">
-      <body>funksjonaliteten i denne kan kanskje heller være i "Game"</body>
-      <annotatedElements>
-        <classMoniker
-          Id="b9fa3fd8-3a06-4926-983f-4abca49f7255"
-          LastKnownName="SnakeController"
-          LastKnownLocation="SnaekModel.uml" />
-      </annotatedElements>
-    </comment>
-    <comment
-      Id="7aedb5a4-c43e-4414-84de-9dcfd3169233">
-      <body>Kan kanskje linkes til Game istedet?</body>
-      <annotatedElements>
-        <classMoniker
-          Id="521ca01a-d3dd-49b6-bba5-bd184a7e1bc9"
-          LastKnownName="Board"
-          LastKnownLocation="SnaekModel.uml" />
-      </annotatedElements>
-    </comment>
   </ownedCommentsInternal>
   <profileInstances>
     <packageHasProfileInstances
@@ -67,6 +47,13 @@
           <operation
             Id="4bf2e781-8b1d-4406-91cb-c05256afab27"
             name="spawnGameObject"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="598e6688-d3cf-401a-a5c7-2bd6d301728a"
             isLeaf="false"
             isStatic="false"
             isAbstract="false"
@@ -162,7 +149,21 @@
         name="root"
         isAbstract="false"
         isLeaf="false"
-        isActiveClass="false" />
+        isActiveClass="false">
+        <ownedAttributesInternal>
+          <property
+            Id="b8245a46-9ada-4bf7-bf4d-1765b59cd0d1"
+            name="BoarW"
+            isLeaf="false"
+            isStatic="true"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+      </class>
     </packageHasNamedElement>
     <packageHasNamedElement>
       <class
@@ -354,6 +355,30 @@
               LastKnownLocation="SnaekModel.uml" />
           </generalization>
         </generalsInternal>
+        <ownedAttributesInternal>
+          <property
+            Id="9fa83e2c-a0e9-434c-afcc-d0f2f0d601e7"
+            name="posX"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="67bddb33-e8ca-4759-ae6b-a8e010e7a654"
+            name="posY"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation
             Id="dd45be49-27ca-42a6-bc3a-3aa5d007a61c"
