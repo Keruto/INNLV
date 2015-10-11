@@ -16,15 +16,16 @@ namespace SnaekMezz
 		public Position NewHeadPosition;
 		public Position Tail;
 		public Position Head;
-        short direction = 2; // 0 = up, 1 = right, 2 = down, 3 = left
-		short lastDirection;
+        short _direction = 2; // 0 = up, 1 = right, 2 = down, 3 = left
+		short _lastDirection;
 
 		public Snake()
 		{
+			SnakeElements.Clear();
 			NewHeadPosition = new Position(10, 10);
 			Tail = new Position(10, 10);
 			Head = new Position(10, 10);
-			var lastDirection = direction;
+			_lastDirection = _direction;
 			for (var i = 0; i < defaultSnakeLength; i++)
 			{
 				SnakeElements.Add(new Position (10, 10));
@@ -34,7 +35,7 @@ namespace SnaekMezz
 		public override void Draw()
 		{
 			Console.ForegroundColor = Color;
-			Console.SetCursorPosition (Position.X, Position.Y);
+			Console.SetCursorPosition (Head.X, Head.Y);
 			Console.Write (_bodyLooks);
 
 			if (Global.IsErasable)
@@ -46,7 +47,7 @@ namespace SnaekMezz
 			SnakeElements.Add (NewHeadPosition);
 			Console.SetCursorPosition (NewHeadPosition.X, NewHeadPosition.Y);
 			Console.Write (_headLooks);
-			lastDirection = direction;
+			_lastDirection = _direction;
 
 		}
 
@@ -55,22 +56,22 @@ namespace SnaekMezz
 
 			//listeningForInput... "Controller" class maybe?
 
-				if (Console.KeyAvailable)
-				{
-					var cki = Console.ReadKey (true);
-					if (cki.Key == ConsoleKey.Escape)
-						Global.IsGameOver = true;
-					else if (cki.Key == ConsoleKey.Spacebar)
-						Global.IsPaused = !Global.IsPaused;
-					else if (cki.Key == ConsoleKey.UpArrow && lastDirection != 2)
-						direction = 0;
-					else if (cki.Key == ConsoleKey.RightArrow && lastDirection != 3)
-						direction = 1;
-					else if (cki.Key == ConsoleKey.DownArrow && lastDirection != 0)
-						direction = 2;
-					else if (cki.Key == ConsoleKey.LeftArrow && lastDirection != 1)
-						direction = 3;
-				}
+			if (Console.KeyAvailable)
+			{
+				var cki = Console.ReadKey (true);
+				if (cki.Key == ConsoleKey.Escape)
+					Global.IsGameOver = true;
+				else if (cki.Key == ConsoleKey.Spacebar)
+					Global.IsPaused = !Global.IsPaused;
+				else if (cki.Key == ConsoleKey.UpArrow && _lastDirection != 2)
+					_direction = 0;
+				else if (cki.Key == ConsoleKey.RightArrow && _lastDirection != 3)
+					_direction = 1;
+				else if (cki.Key == ConsoleKey.DownArrow && _lastDirection != 0)
+					_direction = 2;
+				else if (cki.Key == ConsoleKey.LeftArrow && _lastDirection != 1)
+					_direction = 3;
+			}
 		}
 
 
@@ -78,9 +79,9 @@ namespace SnaekMezz
 		{
 			Tail = new Position (SnakeElements.First ());
 			Head = new Position (SnakeElements.Last ());
-			NewHeadPosition = new Position (Head);
+			NewHeadPosition = (Head);
 
-			switch (direction)
+			switch (_direction)
 			{
 				case 0:
 					NewHeadPosition.Y -= 1;
