@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="9f8625f3-f3bd-476b-ad90-67dd24d17c08" name="CookyBakeri" linkedPackageId="60c26c93-dbf7-4433-8d03-6330873749fe" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
+  <ownedCommentsInternal>
+    <comment Id="d7f2c74a-01e6-44d6-a75c-b443894e116c">
+      <elementDefinition Id="d5c07cb9-b292-4103-a367-a64d428c406f" />
+      <body>jeg har ingen ide om hva jeg har satt opp her</body>
+    </comment>
+  </ownedCommentsInternal>
+  <profileInstances>
+    <packageHasProfileInstances Id="79f07018-b617-4d9c-9620-f9ce7c54ec8e">
+      <profileInstance Id="b5d6adab-f8c3-4594-9206-23bc96c8e7e7" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="b211d915-27e5-4bc7-a9c7-bd921225fdb0">
+      <profileInstance Id="41aa61e2-2de7-4bf1-8f7d-376ff6852a73" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <useCaseModelRootHasTypes>
+      <actor Id="102085d6-335f-43ff-8beb-636b586a235b" name="RegularCustomer" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="2c4f622c-5900-464a-baf0-858aaa205a3d" />
+        <targetEnds>
+          <association Id="ff8f3d04-55c1-4408-a222-db51cdf39b70" isDerived="false" sourceEndRoleName="RegularCustomer" targetEndRoleName="Buy" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="0f91ff3d-d5dd-4eab-9a30-1c0364f49f32" LastKnownName="Buy" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="760e77eb-9e02-4154-be94-ac3c53f13a3f" name="RegularCustomer" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="a4506be5-1a68-4f26-9604-26e64cb0bda1" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="e2552766-e45b-41c7-837a-c766b4942672" name="Buy" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="fa4bd999-f0bf-4ae7-9e29-fa1a66f35145" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="f4d8c244-f9d1-406a-b0e0-286f4bc6302c" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="7fd3c580-17d4-4b06-9b55-e4b3d8725671" name="Sell" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="a08fe551-bf7b-4c03-9b9d-f677dcc4f111" />
+        <additions>
+          <include Id="aa16a833-cb54-4ae7-b4dc-d1c9f10f6a6f">
+            <useCaseMoniker Id="0f91ff3d-d5dd-4eab-9a30-1c0364f49f32" LastKnownName="Buy" />
+            <elementDefinition Id="9a30b7d3-38b5-42a4-988e-172ee18932af" />
+          </include>
+        </additions>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="1f76e3de-356f-47f9-8a8b-e2ca8e6b01d4" name="Bakery" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="52eac0b7-2e30-4b86-a932-33017c2d3a31" />
+        <targetEnds>
+          <association Id="6e09953b-8128-4829-b539-db1459782ebf" isDerived="false" sourceEndRoleName="Bakery" targetEndRoleName="Sell" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="7fd3c580-17d4-4b06-9b55-e4b3d8725671" LastKnownName="Sell" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="e6f04b58-7f9f-4416-b405-a8860881fd54" name="Bakery" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="3a813266-86ef-4ad0-948b-1ceb92605877" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="c9b07f11-c19c-4214-ab15-8db31b1013f1" name="Sell" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="eac473be-ec26-464f-820a-be2e1b897231" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="410d2a87-d6ec-4f43-b49b-11af0ef56451" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="0f91ff3d-d5dd-4eab-9a30-1c0364f49f32" name="Buy" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="3a69cd75-d3f5-4f78-a211-d5bbc7fd5926" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+  </packagedElements>
+  <package Id="60c26c93-dbf7-4433-8d03-6330873749fe" name="UseCase">
+    <elementDefinition Id="6d3eb989-9526-43e4-87d0-6b216583db07" />
+  </package>
+</useCaseModelRoot>

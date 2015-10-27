@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm9="http://schemas.microsoft.com/dsltools/UseCaseModel"
+  dslVersion="1.0.0.0"
+  Id="6d3eb989-9526-43e4-87d0-6b216583db07"
+  name="UseCase" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <ownedCommentsInternal>
+    <comment
+      Id="d5c07cb9-b292-4103-a367-a64d428c406f">
+      <body>jeg har ingen ide om hva jeg har satt opp her</body>
+    </comment>
+  </ownedCommentsInternal>
+  <profileInstances>
+    <packageHasProfileInstances
+      Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b">
+      <profileInstance
+        Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791"
+        name="StandardProfileL2" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances
+      Id="29349502-908c-4fda-9054-c48619c59ed0">
+      <profileInstance
+        Id="532ea607-fb19-44b8-8502-3351b05452be"
+        name="StandardProfileL3" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <packageHasNamedElement>
+      <actor
+        Id="2c4f622c-5900-464a-baf0-858aaa205a3d"
+        name="RegularCustomer"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="f4d8c244-f9d1-406a-b0e0-286f4bc6302c"
+            isDerived="false"
+            sourceEndRoleName="RegularCustomer"
+            targetEndRoleName="Buy"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="3a69cd75-d3f5-4f78-a211-d5bbc7fd5926"
+              LastKnownName="Buy"
+              LastKnownLocation="UseCase.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="a4506be5-1a68-4f26-9604-26e64cb0bda1"
+                  name="RegularCustomer"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="fa4bd999-f0bf-4ae7-9e29-fa1a66f35145"
+                  name="Buy"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="a08fe551-bf7b-4c03-9b9d-f677dcc4f111"
+        name="Sell"
+        isAbstract="false"
+        isLeaf="false">
+        <additions>
+          <include
+            Id="9a30b7d3-38b5-42a4-988e-172ee18932af">
+            <useCaseMoniker
+              Id="3a69cd75-d3f5-4f78-a211-d5bbc7fd5926"
+              LastKnownName="Buy"
+              LastKnownLocation="UseCase.uml" />
+          </include>
+        </additions>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="52eac0b7-2e30-4b86-a932-33017c2d3a31"
+        name="Bakery"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="410d2a87-d6ec-4f43-b49b-11af0ef56451"
+            isDerived="false"
+            sourceEndRoleName="Bakery"
+            targetEndRoleName="Sell"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="a08fe551-bf7b-4c03-9b9d-f677dcc4f111"
+              LastKnownName="Sell"
+              LastKnownLocation="UseCase.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="3a813266-86ef-4ad0-948b-1ceb92605877"
+                  name="Bakery"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="eac473be-ec26-464f-820a-be2e1b897231"
+                  name="Sell"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="3a69cd75-d3f5-4f78-a211-d5bbc7fd5926"
+        name="Buy"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+  </packagedElements>
+  <primitiveType
+    Id="220a3521-e091-4221-bae9-3ef9018e845c"
+    name="Integer"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+    name="Boolean"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+    name="String"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="3ab42e7d-4969-445a-b209-471f5cb8209c"
+    name="UnlimitedNatural"
+    isAbstract="false"
+    isLeaf="false" />
+</modelStoreModel>
