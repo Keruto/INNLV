@@ -15,7 +15,7 @@ namespace CookyBakeri
         static void Main(string[] args)
         {
             Bakery bakery = new Bakery();
-            Thread bakeryT = new Thread(bakery.bakeCookie);
+            Thread bakeryT = new Thread(bakery.work);
             bakeryT.Start();
 
             RegularCustomer fred = new RegularCustomer("Fred");

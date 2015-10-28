@@ -1,28 +1,50 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CookyBakeri
+﻿namespace CookyBakeri
 {
-    class Cookie
+    interface Cookie
     {
-        private string type;
-
-        // må ha type
-        private Cookie() {}
-
-        public Cookie(string type)
+        string Type
         {
-            this.type = type;
+            get;
         }
+    }
 
+    class Chocolate : Cookie
+    {
         public string Type
         {
             get
             {
-                return this.type;
+                return "chocolate";
+            }
+        }
+    }
+    class Raisins : Cookie
+    {
+        public string Type
+        {
+            get
+            {
+                return "raisins";
+            }
+        }
+    }
+    class Nonstop : Cookie
+    {
+        public string Type
+        {
+            get
+            {
+                return "nonstop";
+            }
+        }
+    }
+    class Icing : Cookie
+    {
+        public string Type
+        {
+            get
+            {
+                return "icing";
             }
         }
     }

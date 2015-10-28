@@ -4,6 +4,8 @@ using System.Diagnostics;
 
 namespace CookyBakeri
 {
+    enum CookieType { Chocolate, Raisins, Nonstop, Icing };
+
     public class Bakery
     {
         private const int cookiesPerDay = 20;
@@ -22,7 +24,7 @@ namespace CookyBakeri
             get { return cookiesSold < cookiesPerDay; }
         }
 
-        public void bakeCookie()
+        public void work()
         {
             var stopwatch = new Stopwatch();
             stopwatch.Start();
@@ -40,30 +42,38 @@ namespace CookyBakeri
         {
             if (cookies.Count >= cookiesPerDay) return;
 
+            Array values = Enum.GetValues(typeof(CookieType));
             Random rng = new Random();
-            int type = rng.Next(1, 5);
-            string typeText = "";
+            CookieType randomCookieType = (CookieType)values.GetValue(rng.Next(values.Length));
+            Cookie randomCookie = bakeCookie(randomCookieType);
+            cookies.Add(randomCookie);
+                     
+            Console.WriteLine("Bakery made cookie #" + cookies.Count + " with " + randomCookie.Type);
+        }
+
+        private Cookie bakeCookie(CookieType type)
+        {
+            Cookie cookie = null;
+
             switch (type)
             {
-                case 1:
-                    typeText = "chocolate";
+                case CookieType.Chocolate:
+                    cookie = new Chocolate();
                     break;
-                case 2:
-                    typeText = "raisins";
+                case CookieType.Raisins:
+                    cookie = new Raisins();
                     break;
-                case 3:
-                    typeText = "nonstop";
+                case CookieType.Nonstop:
+                    cookie = new Nonstop();
                     break;
-                case 4:
-                    typeText = "icing";
+                case CookieType.Icing:
+                    cookie = new Icing();
                     break;
                 default:
-                    typeText = "chocolate";
+                    cookie = new Chocolate();
                     break;
             }
-            cookies.Add(new Cookie(typeText));
-                     
-            Console.WriteLine("Bakery made cookie #" + cookies.Count + " with " + typeText);
+            return cookie;
         }
 
         public void sellCookieTo(RegularCustomer customer)
@@ -72,7 +82,7 @@ namespace CookyBakeri
 
             lock (cookies[cookiesSold++])
             {
-                Console.WriteLine("\t\t\t\t" + customer.name + " received cookie #" + cookiesSold + " with " + cookies[(cookiesSold-1)].Type);
+                Console.WriteLine("\t\t\t\t\t" + customer.name + " received cookie #" + cookiesSold + " with " + cookies[(cookiesSold-1)].Type);
             }
         }
     }
