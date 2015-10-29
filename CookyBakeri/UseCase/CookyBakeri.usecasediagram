@@ -3,7 +3,7 @@
   <ownedCommentsInternal>
     <comment Id="d7f2c74a-01e6-44d6-a75c-b443894e116c">
       <elementDefinition Id="d5c07cb9-b292-4103-a367-a64d428c406f" />
-      <body>jeg har ingen ide om hva jeg har satt opp her</body>
+      <body>jeg har ingen ide om hva jeg har satt opp her (fix this plz)</body>
     </comment>
   </ownedCommentsInternal>
   <appliedStereotypesInternal>
@@ -78,20 +78,6 @@
       </propertyInstances>
     </stereotypeInstance>
   </appliedStereotypesInternal>
-  <profileInstances>
-    <packageHasProfileInstances Id="04aa2189-9aac-4b17-bffb-37d1f9f41540">
-      <profileInstance Id="4471c1c1-5090-4e20-875d-8b652c0909a1" name="CSharpProfile">
-        <elementDefinition Id="0bf57be8-6741-4005-b10c-3bbc9c8cfb50" />
-      </profileInstance>
-      <elementDefinition Id="19cd0776-549e-4281-b469-ec13ef8009c9" />
-    </packageHasProfileInstances>
-    <packageHasProfileInstances Id="961dda37-ac00-4aac-98de-04532e2bf959">
-      <profileInstance Id="eeadfc91-d985-4437-ac22-1712dd2c0ddf" name="TextTemplateBindings">
-        <elementDefinition Id="eb047f5a-e072-4b97-9086-8f898ba32654" />
-      </profileInstance>
-      <elementDefinition Id="95462dec-fddb-4fbf-b574-16e6e53e76c8" />
-    </packageHasProfileInstances>
-  </profileInstances>
   <packagedElements>
     <useCaseModelRootHasTypes>
       <actor Id="102085d6-335f-43ff-8beb-636b586a235b" name="RegularCustomer" isAbstract="false" isLeaf="false">
@@ -170,6 +156,18 @@
           <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
         </profileInstance>
         <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="04aa2189-9aac-4b17-bffb-37d1f9f41540">
+        <profileInstance Id="4471c1c1-5090-4e20-875d-8b652c0909a1" name="CSharpProfile">
+          <elementDefinition Id="0bf57be8-6741-4005-b10c-3bbc9c8cfb50" />
+        </profileInstance>
+        <elementDefinition Id="19cd0776-549e-4281-b469-ec13ef8009c9" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="961dda37-ac00-4aac-98de-04532e2bf959">
+        <profileInstance Id="eeadfc91-d985-4437-ac22-1712dd2c0ddf" name="TextTemplateBindings">
+          <elementDefinition Id="eb047f5a-e072-4b97-9086-8f898ba32654" />
+        </profileInstance>
+        <elementDefinition Id="95462dec-fddb-4fbf-b574-16e6e53e76c8" />
       </packageHasProfileInstances>
     </profileInstances>
   </package>
