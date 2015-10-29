@@ -8,9 +8,14 @@ namespace CookyBakeri
 
     public class Bakery
     {
-        private const int cookiesPerDay = 20;
+        private int cookiesPerDay;
         private int cookiesSold;
         private List<Cookie> cookies = new List<Cookie>();
+
+        public Bakery()
+        {
+            cookiesPerDay = root.cookiesPerDay;
+        }
 
         // om det er flere igjen i ovnen
         public bool inOven

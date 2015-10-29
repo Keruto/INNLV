@@ -8,6 +8,7 @@ namespace CookyBakeri
     {
         public static int bakingTime = 667; // millisekunder
         public static int buyingTime = 1000; // millisekunder
+        public static int cookiesPerDay = 20;
     }
 
     class Program
