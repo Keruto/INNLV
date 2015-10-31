@@ -99,18 +99,21 @@ namespace SnaekMezz
 					NewHeadPosition.Y += 1;
 					break;
 			}
-			Draw();
+
+			//Has snake moved out of bounds?
+			if (NewHeadPosition.X < 0 || NewHeadPosition.X >= Global.BoardWidth ||
+				NewHeadPosition.Y < 0 || NewHeadPosition.Y >= Global.BoardHeight)
+			{
+				Global.IsGameOver = true;
+				return;
+			}
+			Draw ();
 		}
 
 		public void CheckForCollision(Apple other)
 		{
 			//---game over criteria "IsGameOver"?---
-			//Wall collision
-			if (NewHeadPosition.X < 0 || NewHeadPosition.X >= Global.BoardWidth ||
-			    NewHeadPosition.Y < 0 || NewHeadPosition.Y >= Global.BoardHeight)
-			{
-				Global.IsGameOver = true;
-			}
+
 
 
 			if (AteTheApple)
