@@ -24,7 +24,7 @@ namespace SnaekMezz
 		private void ReadInput()
 		{
 
-			//listeningForInput... "Controller" class maybe?
+			//ListeningForInput
 
 			if (!Console.KeyAvailable) return;
 			var cki = Console.ReadKey (true);

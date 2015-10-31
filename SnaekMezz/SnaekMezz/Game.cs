@@ -14,11 +14,10 @@ namespace SnaekMezz
 			Console.Title = "SNAKE";
 			Console.CursorVisible = false;
 
-			var gameBoard = new GameBoard();
-			var inputReader = new InputReader();
-			var timer = new Stopwatch ();
-			int snakeSpeed = 100;
-			ConsoleKey _moveKey;
+			var gameBoard = new GameBoard();				//Is responsible for placing and updating the game objects.
+			var inputReader = new InputReader();			//reads the player's keyboard input.
+			var timer = new Stopwatch ();					//Is used to keep the frame rate consistent.
+			const int updateDelay = 100;					//Snake moves faster with lower numbers.
 
 			ResetGlobals ();
 
@@ -30,35 +29,18 @@ namespace SnaekMezz
 
 			while (!Global.IsGameOver)
 			{
-
-				//timer.Stop();
-
-
-				_moveKey = inputReader.GetInput();
-
-
+				var moveKey = inputReader.GetInput();
 
 				if (!Global.IsPaused)
 				{
-
-					if (timer.ElapsedMilliseconds < snakeSpeed)
+					if (timer.ElapsedMilliseconds < updateDelay)
 					{
 						continue;
 					}
 
 					timer.Restart();
 
-					gameBoard.ChangeBoard(_moveKey);
-
-				/*	snake.MoveSnake();
-					snake.CheckForCollision(apple);
-					snake.Draw();*/
-
-/*					if (!Global.IsErasable)
-					{
-						apple.Draw();
-						Global.IsErasable = true;
-					}*/
+					gameBoard.ChangeBoard(moveKey);
 				}
 			}
 		}

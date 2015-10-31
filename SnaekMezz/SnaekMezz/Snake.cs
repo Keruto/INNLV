@@ -9,8 +9,8 @@ namespace SnaekMezz
 	class Snake : GameObject
 	{
 		private const short defaultSnakeLength = 4;
-		public const char _headLooks = '@';
-		public const char _bodyLooks = '0';
+		public const char HeadLooks = '@';
+		public const char BodyLooks = '0';
 		private const ConsoleColor Color = ConsoleColor.Yellow;
 
 		public bool AteTheApple { get; private set; }
@@ -58,14 +58,11 @@ namespace SnaekMezz
 
 			//Drawing head
 			Console.SetCursorPosition (NewHeadPosition.X, NewHeadPosition.Y);
-			Console.Write (_headLooks);
-
+			Console.Write (HeadLooks);
 		}
 
 		public void ChangeDirection (ConsoleKey moveKey)
 		{
-
-			//listeningForInput... "Controller" class maybe?
 			if (moveKey == ConsoleKey.UpArrow && Direction != SnakeDirection.DOWN)
 				Direction = SnakeDirection.UP;
 			else if (moveKey == ConsoleKey.RightArrow && Direction != SnakeDirection.LEFT)
@@ -75,7 +72,6 @@ namespace SnaekMezz
 			else if (moveKey == ConsoleKey.LeftArrow && Direction != SnakeDirection.RIGHT)
 				Direction = SnakeDirection.LEFT;
 		}
-
 
 		public void MoveSnake()
 		{		
@@ -114,8 +110,6 @@ namespace SnaekMezz
 		{
 			//---game over criteria "IsGameOver"?---
 
-
-
 			if (AteTheApple)
 			{
 				AteTheApple = false;
@@ -123,7 +117,7 @@ namespace SnaekMezz
 		
 			else
 			{ 
-				//removing the tail
+				//Removing the tail
 				Console.SetCursorPosition(Tail.X, Tail.Y);
 				Console.Write(" ");
 				SnakeElements.RemoveAt (0);
@@ -144,7 +138,6 @@ namespace SnaekMezz
 				}
 			}
 
-
 			// Check for appleCollision
 			if (NewHeadPosition.X == other.X && NewHeadPosition.Y == other.Y)
 			{
@@ -158,12 +151,7 @@ namespace SnaekMezz
 					//other.ReplaceApple(NewHeadPosition, SnakeElements);
 				}
 			}
-
 			SnakeElements.Add(NewHeadPosition);
-
-
-
-
 		}
 	}
 }
