@@ -134,9 +134,10 @@ namespace SnaekMezz
 						AteTheApple = true;
 					}
 					// Check for death by accidental self-cannibalism.
-				/*	if (x.X != NewHeadPosition.X || x.Y != NewHeadPosition.Y) continue;
+					//Must execute after NewHeadPosition has moved a space.
+					if (x.X != NewHeadPosition.X || x.Y != NewHeadPosition.Y) continue;
 					Global.IsGameOver = true;
-					break;*/
+					break;
 				}
 			}
 

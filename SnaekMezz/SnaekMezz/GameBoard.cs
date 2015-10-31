@@ -29,8 +29,8 @@ namespace SnaekMezz
 		public void ChangeBoard(ConsoleKey moveKey)
 		{
 			_snake.ChangeDirection(moveKey);
+			_snake.MoveSnake ();
 			_snake.CheckForCollision(_apple);
-			_snake.MoveSnake();
 			ReplaceApple();
 		}
 	}
