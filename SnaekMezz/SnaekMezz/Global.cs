@@ -12,6 +12,5 @@ namespace SnaekMezz
 		public static readonly int BoardHeight = Console.WindowHeight;
 		public static bool IsGameOver = false;
 		public static bool IsPaused = false;
-		public static bool IsErasable = true;
 	}
 }

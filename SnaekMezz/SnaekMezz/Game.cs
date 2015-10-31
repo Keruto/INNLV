@@ -10,49 +10,63 @@ namespace SnaekMezz
 
 		private static void Main(string[] args)
 		{
-			//Sm.Maine();
-			var timer = new Stopwatch ();
-			var snake = new Snake();
-			var apple = new Apple();
-			Console.CursorVisible = false;
+
 			Console.Title = "SNAKE";
-			snake.Draw ();
-			apple.ReplaceApple (snake.SnakeElements);
+			Console.CursorVisible = false;
 
-			while (true)
+			var gameBoard = new GameBoard();
+			var inputReader = new InputReader();
+			var timer = new Stopwatch ();
+			int snakeSpeed = 100;
+			ConsoleKey _moveKey;
+
+			ResetGlobals ();
+
+			//snake.Draw ();
+
+
+
+			timer.Start ();
+
+			while (!Global.IsGameOver)
 			{
-				if (Global.IsGameOver)
-				{
-					return;
-				}
 
-				timer.Stop();
-				timer.Start();
+				//timer.Stop();
 
-				snake.ListenForInput ();
+
+				_moveKey = inputReader.GetInput();
 
 
 
 				if (!Global.IsPaused)
 				{
 
-					if (timer.ElapsedMilliseconds < 100)
+					if (timer.ElapsedMilliseconds < snakeSpeed)
 					{
 						continue;
 					}
+
 					timer.Restart();
 
-					snake.MoveHead();
-					snake.CheckForCollision(apple);
-					snake.Draw();
+					gameBoard.ChangeBoard(_moveKey);
 
-					if (!Global.IsErasable)
+				/*	snake.MoveSnake();
+					snake.CheckForCollision(apple);
+					snake.Draw();*/
+
+/*					if (!Global.IsErasable)
 					{
 						apple.Draw();
 						Global.IsErasable = true;
-					}
+					}*/
 				}
 			}
+		}
+
+		public static void ResetGlobals()
+		{
+			Global.IsGameOver = false;
+			Global.IsPaused = false;
 		}
 	}
 }

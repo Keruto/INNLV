@@ -12,20 +12,26 @@ namespace SnaekMezz
 		public const char _headLooks = '@';
 		public const char _bodyLooks = '0';
 		private const ConsoleColor Color = ConsoleColor.Yellow;
+
+		public bool AteTheApple { get; private set; }
 		public List<Position> SnakeElements = new List<Position>();
 		public Position NewHeadPosition;
-		public Position Tail;
-		public Position Head;
-        short _direction = 2; // 0 = up, 1 = right, 2 = down, 3 = left
-		short _lastDirection;
+		public Position Tail => SnakeElements.First();
+		public Position Head => SnakeElements.Last();
+
+		public enum SnakeDirection
+		{
+			UP,
+			RIGHT,
+			DOWN,
+			LEFT
+		};
+		public SnakeDirection Direction;
 
 		public Snake()
 		{
-			SnakeElements.Clear();
+			Direction = SnakeDirection.DOWN;
 			NewHeadPosition = new Position(10, 10);
-			Tail = new Position(10, 10);
-			Head = new Position(10, 10);
-			_lastDirection = _direction;
 			for (var i = 0; i < defaultSnakeLength; i++)
 			{
 				SnakeElements.Add(new Position (10, 10));
@@ -34,94 +40,109 @@ namespace SnaekMezz
 
 		public override void Draw()
 		{
-			Console.ForegroundColor = Color;
-			Console.SetCursorPosition (Head.X, Head.Y);
-			Console.Write (_bodyLooks);
-
-			if (Global.IsErasable)
+			//Tail eraser
+			if (!AteTheApple)
 			{
 				Console.SetCursorPosition (Tail.X, Tail.Y);
 				Console.Write (" ");
 			}
 
-			SnakeElements.Add (NewHeadPosition);
+			//Drawing body
+			Console.ForegroundColor = Color;
+
+			foreach (var part in SnakeElements)
+			{
+				Console.SetCursorPosition (part.X, part.Y);
+				Console.Write ("0");
+			}
+
+			//Drawing head
 			Console.SetCursorPosition (NewHeadPosition.X, NewHeadPosition.Y);
 			Console.Write (_headLooks);
-			_lastDirection = _direction;
 
 		}
 
-		public void ListenForInput ()
+		public void ChangeDirection (ConsoleKey moveKey)
 		{
 
 			//listeningForInput... "Controller" class maybe?
-
-			if (Console.KeyAvailable)
-			{
-				var cki = Console.ReadKey (true);
-				if (cki.Key == ConsoleKey.Escape)
-					Global.IsGameOver = true;
-				else if (cki.Key == ConsoleKey.Spacebar)
-					Global.IsPaused = !Global.IsPaused;
-				else if (cki.Key == ConsoleKey.UpArrow && _lastDirection != 2)
-					_direction = 0;
-				else if (cki.Key == ConsoleKey.RightArrow && _lastDirection != 3)
-					_direction = 1;
-				else if (cki.Key == ConsoleKey.DownArrow && _lastDirection != 0)
-					_direction = 2;
-				else if (cki.Key == ConsoleKey.LeftArrow && _lastDirection != 1)
-					_direction = 3;
-			}
+			if (moveKey == ConsoleKey.UpArrow && Direction != SnakeDirection.DOWN)
+				Direction = SnakeDirection.UP;
+			else if (moveKey == ConsoleKey.RightArrow && Direction != SnakeDirection.LEFT)
+				Direction = SnakeDirection.RIGHT;
+			else if (moveKey == ConsoleKey.DownArrow && Direction != SnakeDirection.UP)
+				Direction = SnakeDirection.DOWN;
+			else if (moveKey == ConsoleKey.LeftArrow && Direction != SnakeDirection.RIGHT)
+				Direction = SnakeDirection.LEFT;
 		}
 
 
-		public void MoveHead()
-		{
-			Tail = new Position (SnakeElements.First ());
-			Head = new Position (SnakeElements.Last ());
-			NewHeadPosition = (Head);
+		public void MoveSnake()
+		{		
+			NewHeadPosition = new Position(Head);
 
-			switch (_direction)
+			switch (Direction)
 			{
-				case 0:
-					NewHeadPosition.Y -= 1;
+				case SnakeDirection.UP:
+					NewHeadPosition.Y--;
 					break;
-				case 1:
-					NewHeadPosition.X += 1;
+				case SnakeDirection.RIGHT:
+					NewHeadPosition.X++;
 					break;
-				case 2:
-					NewHeadPosition.Y += 1;
+				case SnakeDirection.DOWN:
+					NewHeadPosition.Y++;
+					break;
+				case SnakeDirection.LEFT:
+					NewHeadPosition.X--;
 					break;
 				default:
-					NewHeadPosition.X -= 1;
+					NewHeadPosition.Y += 1;
 					break;
 			}
+			Draw();
 		}
 
 		public void CheckForCollision(Apple other)
 		{
-			//game over criteria "isGameOver"-function?
-			if (NewHeadPosition.X < 0 || NewHeadPosition.X >= Global.BoardWidth)
-				Global.IsGameOver = true;
-			else if (NewHeadPosition.Y < 0 || NewHeadPosition.Y >= Global.BoardHeight)
-				Global.IsGameOver = true;
-
-			SnakeElements.RemoveAt(0);
-
-			//doCollisionwith selfCheck
-			foreach (Position x in SnakeElements)
+			//---game over criteria "IsGameOver"?---
+			//Wall collision
+			if (NewHeadPosition.X < 0 || NewHeadPosition.X >= Global.BoardWidth ||
+			    NewHeadPosition.Y < 0 || NewHeadPosition.Y >= Global.BoardHeight)
 			{
-				if (x.X == NewHeadPosition.X && x.Y == NewHeadPosition.Y)
+				Global.IsGameOver = true;
+			}
+
+
+			if (AteTheApple)
+			{
+				AteTheApple = false;
+			}
+		
+			else
+			{ 
+				//removing the tail
+				Console.SetCursorPosition(Tail.X, Tail.Y);
+				Console.Write(" ");
+				SnakeElements.RemoveAt (0);
+
+				//doCollisionwith selfCheck
+				foreach (var x in SnakeElements)
 				{
-					// Death by accidental self-cannibalism.
+					// Check for appleCollision
+					if (x.X == other.X && x.Y == other.Y)
+					{
+						AteTheApple = true;
+					}
+					// Check for death by accidental self-cannibalism.
+				/*	if (x.X != NewHeadPosition.X || x.Y != NewHeadPosition.Y) continue;
 					Global.IsGameOver = true;
-					break;
+					break;*/
 				}
 			}
 
 
-
-			if (NewHeadPosition.X == other.Position.X && NewHeadPosition.Y == other.Position.Y)
+			// Check for appleCollision
+			if (NewHeadPosition.X == other.X && NewHeadPosition.Y == other.Y)
 			{
 				if (SnakeElements.Count + 1 >= Global.BoardWidth * Global.BoardHeight)
 					// No more room to place apples -- game over.
@@ -129,9 +150,12 @@ namespace SnaekMezz
 
 				else
 				{
-						other.ReplaceApple(SnakeElements);
+					AteTheApple = true;
+					//other.ReplaceApple(NewHeadPosition, SnakeElements);
 				}
 			}
+
+			SnakeElements.Add(NewHeadPosition);
 
 
 

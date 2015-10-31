@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace SnaekMezz
 {
-	abstract class GameObject
+	abstract class GameObject : Position
 	{
-		public Position Position = new Position();
+		//public Position Position = new Position();
 		public char Symbol;
 
 		abstract public void Draw();
