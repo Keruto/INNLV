@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿//This class keeps track of the static variables.
+using System;
 
 namespace SnaekMezz
 {

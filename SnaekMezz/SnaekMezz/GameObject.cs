@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿//All visible objects in the game are GameObjects
 namespace SnaekMezz
 {
 	abstract class GameObject : Position
 	{
-		//public Position Position = new Position();
 		public char Symbol;
 
+		//Every GameObject must have a means to show itself in the console window.
 		abstract public void Draw();
 	}
 }

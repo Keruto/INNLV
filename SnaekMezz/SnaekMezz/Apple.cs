@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SnaekMezz
 {
@@ -11,6 +7,7 @@ namespace SnaekMezz
 		private readonly Random _applePlacementRange = new Random();
 		private const ConsoleColor Color = ConsoleColor.Green;
 
+		//The apple (re)places itself whenever the GameBoard spawns a new one.
 		public Apple()
 		{
 			X = _applePlacementRange.Next (0, Global.BoardWidth);

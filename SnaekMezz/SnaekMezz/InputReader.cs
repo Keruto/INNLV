@@ -1,19 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SnaekMezz
 {
 	class InputReader
 	{
 		private ConsoleKey _cki;
-
-		public InputReader()
-		{
-			
-		}
 
 		public ConsoleKey GetInput()
 		{

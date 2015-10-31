@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SnaekMezz
+﻿namespace SnaekMezz
 {
-	//Position class to give objects positions.
+	//Position class to give all GameObjects positions.
 	class Position
 	{
-		public const string Ok = "Ok"; //what does this do?
 		public int X { get; set; }
 		public int Y { get; set; }
 

@@ -1,40 +1,42 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SnaekMezz
 {
 	class Snake : GameObject
 	{
-		private const short defaultSnakeLength = 4;
-		public const char HeadLooks = '@';
-		public const char BodyLooks = '0';
-		private const ConsoleColor Color = ConsoleColor.Yellow;
+		private const short DefaultSnakeLength = 4;						//Start size of the snake
+		public const char HeadLooks = '@';								//Snake head Graphics
+		public const char BodyLooks = '0';                              //Snake body Graphics
+		private const ConsoleColor Color = ConsoleColor.Yellow;			//Snake color
 
-		public bool AteTheApple { get; private set; }
-		public List<Position> SnakeElements = new List<Position>();
-		public Position NewHeadPosition;
-		public Position Tail => SnakeElements.First();
-		public Position Head => SnakeElements.Last();
+		public bool AteTheApple { get; private set; }					//True if snake ate apple.
+		public List<Position> SnakeElements = new List<Position>();		//List of all the snake parts
+		public Position NewHeadPosition;								//Where head should move next
+		public Position Tail => SnakeElements.First();					//To keep track of the snake's behind
+		public Position Head => SnakeElements.Last();                   //To keep track of the current head position.
 
+		//Enum for more understandable directions.
 		public enum SnakeDirection
 		{
-			UP,
-			RIGHT,
-			DOWN,
-			LEFT
+			Up,
+			Right,
+			Down,
+			Left
 		};
 		public SnakeDirection Direction;
 
 		public Snake()
 		{
-			Direction = SnakeDirection.DOWN;
-			NewHeadPosition = new Position(10, 10);
-			for (var i = 0; i < defaultSnakeLength; i++)
+			//Setting snake's start direction and placing all the snake parts
+			Direction = SnakeDirection.Down;
+			X = 10;
+			Y = 10;
+			NewHeadPosition = new Position(X, Y);
+			for (var i = 0; i < DefaultSnakeLength; i++)
 			{
-				SnakeElements.Add(new Position (10, 10));
+				SnakeElements.Add(new Position (X, Y));
 			}
 		}
 
@@ -45,6 +47,7 @@ namespace SnaekMezz
 			{
 				Console.SetCursorPosition (Tail.X, Tail.Y);
 				Console.Write (" ");
+				SnakeElements.RemoveAt (0);
 			}
 
 			//Drawing body
@@ -61,42 +64,44 @@ namespace SnaekMezz
 			Console.Write (HeadLooks);
 		}
 
+		//Based on user input, change the direction the snake should move. Cannot be backwards.
 		public void ChangeDirection (ConsoleKey moveKey)
 		{
-			if (moveKey == ConsoleKey.UpArrow && Direction != SnakeDirection.DOWN)
-				Direction = SnakeDirection.UP;
-			else if (moveKey == ConsoleKey.RightArrow && Direction != SnakeDirection.LEFT)
-				Direction = SnakeDirection.RIGHT;
-			else if (moveKey == ConsoleKey.DownArrow && Direction != SnakeDirection.UP)
-				Direction = SnakeDirection.DOWN;
-			else if (moveKey == ConsoleKey.LeftArrow && Direction != SnakeDirection.RIGHT)
-				Direction = SnakeDirection.LEFT;
+			if (moveKey == ConsoleKey.UpArrow && Direction != SnakeDirection.Down)
+				Direction = SnakeDirection.Up;
+			else if (moveKey == ConsoleKey.RightArrow && Direction != SnakeDirection.Left)
+				Direction = SnakeDirection.Right;
+			else if (moveKey == ConsoleKey.DownArrow && Direction != SnakeDirection.Up)
+				Direction = SnakeDirection.Down;
+			else if (moveKey == ConsoleKey.LeftArrow && Direction != SnakeDirection.Right)
+				Direction = SnakeDirection.Left;
 		}
 
+		//Move snake based on the chosen direction.
 		public void MoveSnake()
 		{		
 			NewHeadPosition = new Position(Head);
 
 			switch (Direction)
 			{
-				case SnakeDirection.UP:
+				case SnakeDirection.Up:
 					NewHeadPosition.Y--;
 					break;
-				case SnakeDirection.RIGHT:
+				case SnakeDirection.Right:
 					NewHeadPosition.X++;
 					break;
-				case SnakeDirection.DOWN:
+				case SnakeDirection.Down:
 					NewHeadPosition.Y++;
 					break;
-				case SnakeDirection.LEFT:
+				case SnakeDirection.Left:
 					NewHeadPosition.X--;
 					break;
 				default:
-					NewHeadPosition.Y += 1;
+					NewHeadPosition.Y++;
 					break;
 			}
 
-			//Has snake moved out of bounds?
+			//Has snake moved out of bounds? If so, game is over.
 			if (NewHeadPosition.X < 0 || NewHeadPosition.X >= Global.BoardWidth ||
 				NewHeadPosition.Y < 0 || NewHeadPosition.Y >= Global.BoardHeight)
 			{
@@ -108,37 +113,33 @@ namespace SnaekMezz
 
 		public void CheckForCollision(Apple other)
 		{
-			//---game over criteria "IsGameOver"?---
-
+			//Reset bool if apple was eaten last frame.
 			if (AteTheApple)
 			{
 				AteTheApple = false;
 			}
-		
+
+			//Game over criteria "IsGameOver"?
 			else
 			{ 
-				//Removing the tail
-				Console.SetCursorPosition(Tail.X, Tail.Y);
-				Console.Write(" ");
-				SnakeElements.RemoveAt (0);
-
-				//doCollisionwith selfCheck
 				foreach (var x in SnakeElements)
 				{
-					// Check for appleCollision
+					// Check for appleCollision with body
 					if (x.X == other.X && x.Y == other.Y)
 					{
 						AteTheApple = true;
 					}
 					// Check for death by accidental self-cannibalism.
-					//Must execute after NewHeadPosition has moved a space.
-					if (x.X != NewHeadPosition.X || x.Y != NewHeadPosition.Y) continue;
+					//Should not execute before NewHeadPosition has moved a space.
+					if (x.X != NewHeadPosition.X || x.Y != NewHeadPosition.Y)
+						continue;
+
 					Global.IsGameOver = true;
 					break;
 				}
 			}
 
-			// Check for appleCollision
+			// Check for appleCollision with head
 			if (NewHeadPosition.X == other.X && NewHeadPosition.Y == other.Y)
 			{
 				if (SnakeElements.Count + 1 >= Global.BoardWidth * Global.BoardHeight)
