@@ -4,25 +4,23 @@ namespace CookyBakeri
 {
     public class RegularCustomer
     {
-        public string name;
+        public string Name;
 
         // stamkunder må ha navn
-        private RegularCustomer(){}
-
-        public RegularCustomer(string name)
+	    public RegularCustomer(string name)
         {
-            this.name = name;
+            Name = name;
         }
-        public void getCookiesFrom(Bakery bakery)
+        public void GetCookiesFrom(Bakery bakery)
         {
             var stopwatch = new Stopwatch();
             stopwatch.Start();
 
-            while (bakery.inStock)
+            while (bakery.InStock)
             {
-                if (stopwatch.ElapsedMilliseconds < root.buyingTime) continue;
+                if (stopwatch.ElapsedMilliseconds < Root.BuyingTime) continue;
 
-                bakery.sellCookieTo(this);
+                bakery.SellCookieTo(this);
                 stopwatch.Restart();
             }
         }

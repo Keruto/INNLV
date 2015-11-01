@@ -8,52 +8,46 @@ namespace CookyBakeri
 
     public class Bakery
     {
-        private int cookiesPerDay;
-        private int cookiesSold;
-        private List<Cookie> cookies = new List<Cookie>();
+        private readonly int _cookiesPerDay;
+        private int _cookiesSold;
+        private readonly List<Cookie> _cookies = new List<Cookie>();
 
         public Bakery()
         {
-            cookiesPerDay = root.cookiesPerDay;
+            _cookiesPerDay = Root.CookiesPerDay;
         }
 
         // om det er flere igjen i ovnen
-        public bool inOven
-        {
-            get { return cookies.Count < cookiesPerDay; }
-        }
+        public bool InOven => _cookies.Count < _cookiesPerDay;
 
-        // om det er flere igjen i kurven
-        public bool inStock
-        {
-            get { return cookiesSold < cookiesPerDay; }
-        }
+	    // om det er flere igjen i kurven
+        public bool InStock => _cookiesSold < _cookiesPerDay;
 
-        public void work()
+	    public void Work()
         {
             var stopwatch = new Stopwatch();
             stopwatch.Start();
 
-            while (inOven)
+            while (InOven)
             {
-                if (stopwatch.ElapsedMilliseconds < root.bakingTime) continue;
+                if (stopwatch.ElapsedMilliseconds < Root.BakingTime) continue;
 
-                addCookie();
+                AddCookie();
                 stopwatch.Restart();
             }
         }
 
-        public void addCookie()
+        public void AddCookie()
         {
-            if (cookies.Count >= cookiesPerDay) return;
+            if (_cookies.Count >= _cookiesPerDay) return;
 
-            Array values = Enum.GetValues(typeof(CookieType));
-            Random rng = new Random();
-            CookieType randomCookieType = (CookieType)values.GetValue(rng.Next(values.Length));
-            Cookie randomCookie = bakeCookie(randomCookieType);
-            cookies.Add(randomCookie);
+            var values = Enum.GetValues(typeof(CookieType));
+            var rng = new Random();
+            var randomCookieType = (CookieType)values.GetValue(rng.Next(values.Length));
+            var randomCookie = bakeCookie(randomCookieType);
+            _cookies.Add(randomCookie);
                      
-            Console.WriteLine("Bakery made cookie #" + cookies.Count + " with " + randomCookie.Type);
+            Console.WriteLine("Bakery made cookie #" + _cookies.Count + " with " + randomCookie.Type);
         }
 
         private Cookie bakeCookie(CookieType type)
@@ -81,13 +75,13 @@ namespace CookyBakeri
             return cookie;
         }
 
-        public void sellCookieTo(RegularCustomer customer)
+        public void SellCookieTo(RegularCustomer customer)
         {
-            if (cookies.Count <= cookiesSold) return;
+            if (_cookies.Count <= _cookiesSold) return;
 
-            lock (cookies[cookiesSold++])
+            lock (_cookies[_cookiesSold++])
             {
-                Console.WriteLine("\t\t\t\t\t" + customer.name + " received cookie #" + cookiesSold + " with " + cookies[(cookiesSold-1)].Type);
+                Console.WriteLine("\t\t\t\t\t" + customer.Name + " received cookie #" + _cookiesSold + " with " + _cookies[(_cookiesSold-1)].Type);
             }
         }
     }

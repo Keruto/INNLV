@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm10="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="9f8625f3-f3bd-476b-ad90-67dd24d17c08" name="CookyBakeri" linkedPackageId="60c26c93-dbf7-4433-8d03-6330873749fe" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
+<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="9f8625f3-f3bd-476b-ad90-67dd24d17c08" name="CookyBakeri" linkedPackageId="60c26c93-dbf7-4433-8d03-6330873749fe" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
   <ownedCommentsInternal>
     <comment Id="d7f2c74a-01e6-44d6-a75c-b443894e116c">
       <elementDefinition Id="d5c07cb9-b292-4103-a367-a64d428c406f" />
@@ -84,7 +84,7 @@
         <elementDefinition Id="2c4f622c-5900-464a-baf0-858aaa205a3d" />
         <targetEnds>
           <association Id="ff8f3d04-55c1-4408-a222-db51cdf39b70" isDerived="false" sourceEndRoleName="RegularCustomer" targetEndRoleName="Buy" isLeaf="false" isAbstract="false">
-            <useCaseMoniker Id="0f91ff3d-d5dd-4eab-9a30-1c0364f49f32" LastKnownName="Buy" />
+            <useCaseMoniker Id="0f91ff3d-d5dd-4eab-9a30-1c0364f49f32" LastKnownName="Grab Cookie" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
                 <memberEnd Id="760e77eb-9e02-4154-be94-ac3c53f13a3f" name="RegularCustomer" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
@@ -103,11 +103,11 @@
       </actor>
     </useCaseModelRootHasTypes>
     <useCaseModelRootHasTypes>
-      <useCase Id="7fd3c580-17d4-4b06-9b55-e4b3d8725671" name="Sell" isAbstract="false" isLeaf="false">
+      <useCase Id="7fd3c580-17d4-4b06-9b55-e4b3d8725671" name="Sell Cookie" isAbstract="false" isLeaf="false">
         <elementDefinition Id="a08fe551-bf7b-4c03-9b9d-f677dcc4f111" />
         <additions>
           <include Id="aa16a833-cb54-4ae7-b4dc-d1c9f10f6a6f">
-            <useCaseMoniker Id="0f91ff3d-d5dd-4eab-9a30-1c0364f49f32" LastKnownName="Buy" />
+            <useCaseMoniker Id="0f91ff3d-d5dd-4eab-9a30-1c0364f49f32" LastKnownName="Grab Cookie" />
             <elementDefinition Id="9a30b7d3-38b5-42a4-988e-172ee18932af" />
           </include>
         </additions>
@@ -118,7 +118,7 @@
         <elementDefinition Id="52eac0b7-2e30-4b86-a932-33017c2d3a31" />
         <targetEnds>
           <association Id="6e09953b-8128-4829-b539-db1459782ebf" isDerived="false" sourceEndRoleName="Bakery" targetEndRoleName="Sell" isLeaf="false" isAbstract="false">
-            <useCaseMoniker Id="7fd3c580-17d4-4b06-9b55-e4b3d8725671" LastKnownName="Sell" />
+            <useCaseMoniker Id="7fd3c580-17d4-4b06-9b55-e4b3d8725671" LastKnownName="Sell Cookie" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
                 <memberEnd Id="e6f04b58-7f9f-4416-b405-a8860881fd54" name="Bakery" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
@@ -133,12 +133,54 @@
             </relationshipOwnedElementsInternal>
             <elementDefinition Id="410d2a87-d6ec-4f43-b49b-11af0ef56451" />
           </association>
+          <association Id="f183c149-c80d-474f-b990-3b93adb5a5a8" isDerived="false" sourceEndRoleName="Bakery" targetEndRoleName="Bake Cookie" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="c65f0a86-7e38-4722-83df-2e99d5b6fbf3" LastKnownName="Bake Cookie" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="0efd0277-7cd8-4bce-8055-640040875c15" name="Bakery" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="3977e095-1934-4200-89f4-0fb2adb542fc" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="0e2ef316-1c76-4aff-862a-6aeed8398723" name="Bake Cookie" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="b07f9868-a794-432c-b291-a8dd6dfba10a" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="7b902cb3-9556-47a2-884c-2b009d97107b" />
+          </association>
+          <association Id="119f31c9-4378-4aed-a8c0-bce9de44dea3" isDerived="false" sourceEndRoleName="Bakery" targetEndRoleName="Count Cookies Left" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="38595292-6ed2-4791-9995-a3a82b0e6912" LastKnownName="Count Cookies Left" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="3fc33c8f-584a-4838-abd8-ae654963df62" name="Bakery" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="72f95e53-1bc4-4016-b52b-492f3094f4f9" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="5f342d10-eea4-411a-b560-c58ea8ea3283" name="Count Cookies Left" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="2455b16e-a857-45c1-9db4-cb77f696fe54" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="6c97ef1d-db22-4d2c-8b2f-ffc422741d39" />
+          </association>
         </targetEnds>
       </actor>
     </useCaseModelRootHasTypes>
     <useCaseModelRootHasTypes>
-      <useCase Id="0f91ff3d-d5dd-4eab-9a30-1c0364f49f32" name="Buy" isAbstract="false" isLeaf="false">
+      <useCase Id="0f91ff3d-d5dd-4eab-9a30-1c0364f49f32" name="Grab Cookie" isAbstract="false" isLeaf="false">
         <elementDefinition Id="3a69cd75-d3f5-4f78-a211-d5bbc7fd5926" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="c65f0a86-7e38-4722-83df-2e99d5b6fbf3" name="Bake Cookie" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="1366ab3c-93f1-4752-b953-a5e5ca8bd04d" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="38595292-6ed2-4791-9995-a3a82b0e6912" name="Count Cookies Left" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="9aee220f-9038-43a1-9f98-a083a3ec4ad8" />
       </useCase>
     </useCaseModelRootHasTypes>
   </packagedElements>
