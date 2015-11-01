@@ -31,12 +31,12 @@ namespace SnaekMezz
 		{
 			//Setting snake's start direction and placing all the snake parts
 			Direction = SnakeDirection.Down;
-			X = 10;
-			Y = 10;
-			NewHeadPosition = new Position(X, Y);
+			Position.X = 10;
+			Position.Y = 10;
+			NewHeadPosition = new Position(Position.X, Position.Y);
 			for (var i = 0; i < DefaultSnakeLength; i++)
 			{
-				SnakeElements.Add(new Position (X, Y));
+				SnakeElements.Add(new Position (Position.X, Position.Y));
 			}
 		}
 
@@ -125,7 +125,7 @@ namespace SnaekMezz
 				foreach (var x in SnakeElements)
 				{
 					// Check for appleCollision with body
-					if (x.X == other.X && x.Y == other.Y)
+					if (x.X == other.Position.X && x.Y == other.Position.Y)
 					{
 						AteTheApple = true;
 					}
@@ -140,7 +140,7 @@ namespace SnaekMezz
 			}
 
 			// Check for appleCollision with head
-			if (NewHeadPosition.X == other.X && NewHeadPosition.Y == other.Y)
+			if (NewHeadPosition.X == other.Position.X && NewHeadPosition.Y == other.Position.Y)
 			{
 				if (SnakeElements.Count + 1 >= Global.BoardWidth * Global.BoardHeight)
 					// No more room to place apples -- game over.

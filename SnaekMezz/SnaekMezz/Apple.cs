@@ -10,8 +10,8 @@ namespace SnaekMezz
 		//The apple (re)places itself whenever the GameBoard spawns a new one.
 		public Apple()
 		{
-			X = _applePlacementRange.Next (0, Global.BoardWidth);
-			Y = _applePlacementRange.Next (0, Global.BoardHeight);
+			Position.X = _applePlacementRange.Next (0, Global.BoardWidth);
+			Position.Y = _applePlacementRange.Next (0, Global.BoardHeight);
 			Symbol = '$';
 			Draw();
 		}
@@ -19,7 +19,7 @@ namespace SnaekMezz
 		public override sealed void Draw()
 		{
 			Console.ForegroundColor = Color;
-			Console.SetCursorPosition(X, Y);
+			Console.SetCursorPosition(Position.X, Position.Y);
 			Console.Write(Symbol);
 		}
 	}
