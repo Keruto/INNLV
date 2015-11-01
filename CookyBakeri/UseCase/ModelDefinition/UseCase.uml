@@ -126,45 +126,6 @@
         isLeaf="false">
         <targetEnds>
           <association
-            Id="f4d8c244-f9d1-406a-b0e0-286f4bc6302c"
-            isDerived="false"
-            sourceEndRoleName="RegularCustomer"
-            targetEndRoleName="Buy"
-            isLeaf="false"
-            isAbstract="false">
-            <useCaseMoniker
-              Id="3a69cd75-d3f5-4f78-a211-d5bbc7fd5926"
-              LastKnownName="Grab Cookie"
-              LastKnownLocation="UseCase.uml" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="a4506be5-1a68-4f26-9604-26e64cb0bda1"
-                  name="RegularCustomer"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false"
-                  isNavigableOwned="false" />
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="fa4bd999-f0bf-4ae7-9e29-fa1a66f35145"
-                  name="Buy"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false" />
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-          </association>
-          <association
             Id="ed93e563-b0e4-4ddb-ad39-4038937f463b"
             isDerived="false"
             sourceEndRoleName="RegularCustomer"
@@ -203,6 +164,45 @@
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
           </association>
+          <association
+            Id="e3ef50ff-1bd0-4afb-9a16-352261d1c36e"
+            isDerived="false"
+            sourceEndRoleName="RegularCustomer"
+            targetEndRoleName="Grab Cookie"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="3a69cd75-d3f5-4f78-a211-d5bbc7fd5926"
+              LastKnownName="Grab Cookie"
+              LastKnownLocation="UseCase.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="0ffb4e3a-fa0a-4e68-89ca-3ae1e832f342"
+                  name="RegularCustomer"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="2d3d6e53-bc2b-4677-89e4-1dbee9442ed7"
+                  name="Grab Cookie"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
         </targetEnds>
       </actor>
     </packageHasNamedElement>
@@ -214,7 +214,7 @@
         isLeaf="false">
         <additions>
           <include
-            Id="9a30b7d3-38b5-42a4-988e-172ee18932af">
+            Id="4e3798dc-b0d0-4828-b5b3-346211b75106">
             <useCaseMoniker
               Id="3a69cd75-d3f5-4f78-a211-d5bbc7fd5926"
               LastKnownName="Grab Cookie"
