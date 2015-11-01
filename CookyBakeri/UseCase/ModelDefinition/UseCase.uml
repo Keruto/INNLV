@@ -5,8 +5,8 @@
   name="UseCase" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
   <ownedCommentsInternal>
     <comment
-      Id="d5c07cb9-b292-4103-a367-a64d428c406f">
-      <body>jeg har ingen ide om hva jeg har satt opp her (fix this plz)</body>
+      Id="3c455e32-5354-4058-b31b-d49c3ae7fdb8">
+      <body>Bakery</body>
     </comment>
   </ownedCommentsInternal>
   <appliedStereotypesInternal>
@@ -154,6 +154,45 @@
                 <memberEnd
                   Id="fa4bd999-f0bf-4ae7-9e29-fa1a66f35145"
                   name="Buy"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="ed93e563-b0e4-4ddb-ad39-4038937f463b"
+            isDerived="false"
+            sourceEndRoleName="RegularCustomer"
+            targetEndRoleName="Eat Cookie/Digest Cookie/Wait a While"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="e9dbd509-68b4-4814-8ff8-0ce5e6a443ff"
+              LastKnownName="Eat Cookie/Digest Cookie/Wait a While"
+              LastKnownLocation="UseCase.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="91c69075-e7fa-4e42-be13-ae4834767056"
+                  name="RegularCustomer"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="1ac678cb-5529-4544-9750-e56114de7b53"
+                  name="Eat Cookie/Digest Cookie/Wait a While"
                   isLeaf="false"
                   isStatic="false"
                   isReadOnly="false"
@@ -329,6 +368,13 @@
       <useCase
         Id="9aee220f-9038-43a1-9f98-a083a3ec4ad8"
         name="Count Cookies Left"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="e9dbd509-68b4-4814-8ff8-0ce5e6a443ff"
+        name="Eat Cookie/Digest Cookie/Wait a While"
         isAbstract="false"
         isLeaf="false" />
     </packageHasNamedElement>

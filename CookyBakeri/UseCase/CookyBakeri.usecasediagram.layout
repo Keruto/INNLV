@@ -2,19 +2,19 @@
 <useCaseDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="CookyBakeri">
   <useCaseModelRootMoniker Id="9f8625f3-f3bd-476b-ad90-67dd24d17c08" />
   <nestedChildShapes>
-    <actorShape Id="508c3be4-449f-4848-8035-ec15b5b446af" absoluteBounds="2.25, 2.75, 0.5, 0.5" isReference="false" heightOffset="0">
+    <actorShape Id="508c3be4-449f-4848-8035-ec15b5b446af" absoluteBounds="1.75, 3.625, 0.75, 0.75" isReference="false" heightOffset="0">
       <actorMoniker Id="102085d6-335f-43ff-8beb-636b586a235b" LastKnownName="RegularCustomer" />
       <relativeChildShapes />
     </actorShape>
-    <useCaseShape Id="46a935c9-df63-4baf-a552-2ebb39526a5c" absoluteBounds="3.5, 1.75, 1.25, 0.75" customColor="238, 237, 131" heightOffset="0">
+    <useCaseShape Id="46a935c9-df63-4baf-a552-2ebb39526a5c" absoluteBounds="3.5, 2.125, 1.25, 0.75" customColor="238, 237, 131" heightOffset="0">
       <useCaseMoniker Id="7fd3c580-17d4-4b06-9b55-e4b3d8725671" LastKnownName="Sell Cookie" />
       <relativeChildShapes />
     </useCaseShape>
-    <actorShape Id="df13c7a2-a66e-4f9e-96ba-afa8279c3063" absoluteBounds="5.5, 1, 0.5, 0.5" isReference="false" heightOffset="0">
+    <actorShape Id="df13c7a2-a66e-4f9e-96ba-afa8279c3063" absoluteBounds="5.75, 2, 0.75, 0.75" isReference="false" heightOffset="0">
       <actorMoniker Id="1f76e3de-356f-47f9-8a8b-e2ca8e6b01d4" LastKnownName="Bakery" />
       <relativeChildShapes />
     </actorShape>
-    <useCaseAssociationConnector edgePoints="[(5.5 : 1.38461538461538); (4.59015142730916 : 1.87453384683353)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="113, 111, 110" sourceMultiplicity="" targetMultiplicity="">
+    <useCaseAssociationConnector edgePoints="[(5.75 : 2.3984375); (4.74663650555673 : 2.4611477184027)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="113, 111, 110" sourceMultiplicity="" targetMultiplicity="">
       <associationMoniker Id="6e09953b-8128-4829-b539-db1459782ebf" />
       <relativeChildShapes />
       <nodes>
@@ -22,11 +22,11 @@
         <useCaseShapeMoniker Id="46a935c9-df63-4baf-a552-2ebb39526a5c" />
       </nodes>
     </useCaseAssociationConnector>
-    <useCaseShape Id="13614d13-2b33-491e-9a94-1babd93c0b45" absoluteBounds="3.625, 2.875, 1, 0.5" customColor="238, 237, 131" heightOffset="0">
+    <useCaseShape Id="13614d13-2b33-491e-9a94-1babd93c0b45" absoluteBounds="3.625, 3.25, 1, 0.5" customColor="238, 237, 131" heightOffset="0">
       <useCaseMoniker Id="0f91ff3d-d5dd-4eab-9a30-1c0364f49f32" LastKnownName="Grab Cookie" />
       <relativeChildShapes />
     </useCaseShape>
-    <useCaseAssociationConnector edgePoints="[(2.75 : 3.01923076923077); (3.63081415117469 : 3.08698570393651)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="113, 111, 110" sourceMultiplicity="" targetMultiplicity="">
+    <useCaseAssociationConnector edgePoints="[(2.5 : 3.90625); (3.67778640450004 : 3.61180339887499)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="113, 111, 110" sourceMultiplicity="" targetMultiplicity="">
       <associationMoniker Id="ff8f3d04-55c1-4408-a222-db51cdf39b70" />
       <relativeChildShapes />
       <nodes>
@@ -34,7 +34,7 @@
         <useCaseShapeMoniker Id="13614d13-2b33-491e-9a94-1babd93c0b45" />
       </nodes>
     </useCaseAssociationConnector>
-    <includeConnector edgePoints="[(4.125 : 2.5); (4.125 : 2.875)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="Black" useCaseStereotype="«include»">
+    <includeConnector edgePoints="[(4.125 : 2.875); (4.125 : 3.25)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="Black" useCaseStereotype="«include»">
       <includeMoniker Id="aa16a833-cb54-4ae7-b4dc-d1c9f10f6a6f" />
       <relativeChildShapes />
       <nodes>
@@ -42,15 +42,11 @@
         <useCaseShapeMoniker Id="13614d13-2b33-491e-9a94-1babd93c0b45" />
       </nodes>
     </includeConnector>
-    <commentShape Id="fee4c7e9-07fb-4d2b-a4fb-ca1e0439a7e6" absoluteBounds="1, 1.625, 1.25, 0.5" customColor="251, 247, 200">
-      <commentMoniker Id="d7f2c74a-01e6-44d6-a75c-b443894e116c" />
-      <relativeChildShapes />
-    </commentShape>
-    <useCaseShape Id="f9f623d8-f4d6-4a9b-b057-fcea550e3ca3" absoluteBounds="3.5, 1, 1.25, 0.75" customColor="238, 237, 131" heightOffset="0">
+    <useCaseShape Id="f9f623d8-f4d6-4a9b-b057-fcea550e3ca3" absoluteBounds="3.5, 1.25, 1.25, 0.75" customColor="238, 237, 131" heightOffset="0">
       <useCaseMoniker Id="c65f0a86-7e38-4722-83df-2e99d5b6fbf3" LastKnownName="Bake Cookie" />
       <relativeChildShapes />
     </useCaseShape>
-    <useCaseAssociationConnector edgePoints="[(5.5 : 1.26923076923077); (4.74492604042866 : 1.32731338150549)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="113, 111, 110" sourceMultiplicity="" targetMultiplicity="">
+    <useCaseAssociationConnector edgePoints="[(5.75 : 2.234375); (4.65499894000318 : 1.82374960250119)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="113, 111, 110" sourceMultiplicity="" targetMultiplicity="">
       <associationMoniker Id="f183c149-c80d-474f-b990-3b93adb5a5a8" />
       <relativeChildShapes />
       <nodes>
@@ -62,7 +58,7 @@
       <useCaseMoniker Id="38595292-6ed2-4791-9995-a3a82b0e6912" LastKnownName="Count Cookies Left" />
       <relativeChildShapes />
     </useCaseShape>
-    <useCaseAssociationConnector edgePoints="[(5.61458333333333 : 1.5); (4.32106160679624 : 3.88804011053002)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="113, 111, 110" sourceMultiplicity="" targetMultiplicity="">
+    <useCaseAssociationConnector edgePoints="[(5.75 : 2.7265625); (4.47794117647059 : 3.91911764705882)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="113, 111, 110" sourceMultiplicity="" targetMultiplicity="">
       <associationMoniker Id="119f31c9-4378-4aed-a8c0-bce9de44dea3" />
       <relativeChildShapes />
       <nodes>
@@ -70,5 +66,22 @@
         <useCaseShapeMoniker Id="d7583677-7258-4312-8201-dd23ebaf9416" />
       </nodes>
     </useCaseAssociationConnector>
+    <useCaseShape Id="0644b142-4b90-4e3b-bad3-2cf3b13413be" absoluteBounds="3.125, 4.75, 2.125, 1" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="6896ce16-8f86-4c7f-b68c-5ec3655809bf" LastKnownName="Eat Cookie/Digest Cookie/Wait a While" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <useCaseAssociationConnector edgePoints="[(2.5 : 4.22727272727273); (3.53587184082016 : 4.85507384292131)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="113, 111, 110" sourceMultiplicity="" targetMultiplicity="">
+      <associationMoniker Id="7583dd7b-3db3-4b12-a929-826f45e4930d" />
+      <relativeChildShapes />
+      <nodes>
+        <actorShapeMoniker Id="508c3be4-449f-4848-8035-ec15b5b446af" />
+        <useCaseShapeMoniker Id="0644b142-4b90-4e3b-bad3-2cf3b13413be" />
+      </nodes>
+    </useCaseAssociationConnector>
+    <commentShape Id="10bec2b1-91a1-4bcc-a74e-75c40d7b6251" absoluteBounds="3.625, 0.875, 1.375, 0.25" customColor="White">
+      <commentMoniker Id="1aeae27e-b2e8-4ed9-9206-b310609a912f" />
+      <relativeChildShapes />
+    </commentShape>
+    <rectangleShape Id="e1e659e9-723f-4d8b-8cee-845feb1bfb34" absoluteBounds="3, 1.125, 2.375, 4.75" outlineColor="83, 134, 191" outlineThickness="0.03125" />
   </nestedChildShapes>
 </useCaseDiagram>
